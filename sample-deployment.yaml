@@ -1,0 +1,22 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ubuntu
+  deletionGracePeriodSeconds: 120
+spec:
+  selector:
+    matchLabels:
+      app: ubuntu
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: ubuntu
+    spec:
+      containers:
+      - command: 
+        - /bin/sh
+        name: ubuntu
+        image: ubuntu
+        stdin: true
